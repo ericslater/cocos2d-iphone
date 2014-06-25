@@ -116,7 +116,7 @@ static CGPoint scrollPosition;
     NSString* className = [[self testClassNames] objectAtIndex:tableView.selectedRow];
     
     CCScene* test = [TestBase sceneWithTestName:className];
-    CCTransition* transition = [CCTransition transitionMoveInWithDirection:CCTransitionDirectionLeft duration:0.3];
+    CCTransition* transition = [CCTransition transitionMoveInWithDirection:CCTransitionDirectionLeft duration:1.0];
     
     [[CCDirector sharedDirector] replaceScene:test withTransition:transition];
 }

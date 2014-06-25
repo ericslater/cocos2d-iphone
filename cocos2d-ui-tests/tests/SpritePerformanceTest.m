@@ -6,6 +6,54 @@
 
 #define SPRITE_COUNT 3000
 #define TILE_COUNT 37
+//#define spritePopulation 10
+//#define spritesheet 1
+
+- (void) setupForThisManySprites:(int)spritePopulation spriteSheet:(BOOL)spriteSheet imageType:(NSString *)imageType percentVisible:(int)percentVisible percentOpacity:(int)percentOpacity
+{
+    CGSize size = [CCDirector sharedDirector].designSize;
+    self.subTitle = [NSString stringWithFormat:@"TEST"];
+	
+    if (spriteSheet) {
+        for(int i=0; i<spritePopulation; i++) {
+            
+            int num = arc4random()%TILE_COUNT + 1;
+            CCSprite *sprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"Tiles/%02d.png", num]];
+            sprite.position = ccp(CCRANDOM_0_1()*size.width, CCRANDOM_0_1()*size.height);
+            sprite.rotation = CCRANDOM_0_1()*360;
+            [self.contentNode addChild:sprite];
+        }
+    }
+    
+    else {
+        for(int i=0; i<spritePopulation; i++) {
+            int num = arc4random()%TILE_COUNT + 1;
+            CCSprite *sprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"TilesAtlassed/%02d.png", num]];
+            sprite.position = ccp(CCRANDOM_0_1()*size.width, CCRANDOM_0_1()*size.height);
+            sprite.rotation = CCRANDOM_0_1()*360;
+            [self.contentNode addChild:sprite];
+        }
+    }
+
+}
+
+
+
+-(void)setupCallTest
+{
+    int sprites = 100;
+    BOOL sheet = NO;
+    NSString *image = @"png";
+    int visibility = 100;
+    int opacity = 100;
+    
+    
+    [self setupForThisManySprites:sprites spriteSheet:sheet imageType:image percentVisible:visibility percentOpacity:opacity];
+}
+
+
+
+
 
 - (void)setupSpritesUnbatchedUnatlassedTest
 {
