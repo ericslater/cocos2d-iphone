@@ -41,14 +41,22 @@
 
 -(void)setupCallTest
 {
-    int sprites = 100;
-    BOOL sheet = NO;
-    NSString *image = @"png";
-    int visibility = 100;
-    int opacity = 100;
+    // declare initial values
+    NSArray *spritesArr = [NSMutableArray arrayWithObjects: @100, @200, @500, @1000, @2000, @3000, nil];
+    NSArray *sheetArr = [NSMutableArray arrayWithObjects: @0, @1, nil];
+    NSArray *image = [NSMutableArray arrayWithObjects: @"png", @"jpg", @"pvr", nil];
+    NSArray *visibility = [NSMutableArray arrayWithObjects: @100, @50, @0, nil];
+    NSArray *opacity = [NSMutableArray arrayWithObjects: @100, @50, @0, nil];
+    
+    // if statements
+    for (int n=0; n<[spritesArr count]; n++) {
+        
+    }
     
     
-    [self setupForThisManySprites:sprites spriteSheet:sheet imageType:image percentVisible:visibility percentOpacity:opacity];
+    
+    
+    //[self setupForThisManySprites:sprites spriteSheet:sheet imageType:image percentVisible:visibility percentOpacity:opacity];
 }
 
 
